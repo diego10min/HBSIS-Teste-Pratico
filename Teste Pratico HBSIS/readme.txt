@@ -24,6 +24,10 @@ Na pasta HBSIS.WebApp abrir o prompt de comando como administrador e executar os
 2 - npm install
 3 - npm start
 
+* Caso de erro na no console do browser, altere o arquivo package.json da pasta HBSIS.WebApp, substituindo todos os modulos com versão 2.0.0-rc.4 para 2.0.0-rc.5. Depois execute os comandos:
+1 - npm install
+2 - npm start
+
 Após rodar este ultimo comando, deverá abrir o browser com a aplicação já funcionando.
 
 
