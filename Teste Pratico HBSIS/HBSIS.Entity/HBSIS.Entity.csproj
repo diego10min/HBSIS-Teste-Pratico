@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5411398A-A812-4D7A-A60B-CC2F2E78E490}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HBSIS.Entity</RootNamespace>
+    <AssemblyName>HBSIS.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common\ValidacoesComuns.cs" />
+    <Compile Include="Contracts\Model\IEntity.cs" />
+    <Compile Include="Contracts\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Contracts\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Contracts\Services\IServiceBase.cs" />
+    <Compile Include="Contracts\Services\IUsuarioService.cs" />
+    <Compile Include="Contracts\Validation\IUsuarioValidation.cs" />
+    <Compile Include="Contracts\Validation\IValidationEngine.cs" />
+    <Compile Include="Contracts\Validation\IValidationError.cs" />
+    <Compile Include="Contracts\Validation\IValidationResult.cs" />
+    <Compile Include="Contracts\Validation\IValidationRule.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Validation\Rules\UsuarioRules\UsuarioCpfCnpjValidoRule.cs" />
+    <Compile Include="Validation\Rules\UsuarioRules\UsuarioNomeObrigatorioRule.cs" />
+    <Compile Include="Validation\Rules\UsuarioRules\UsuarioNomeTemAte70CaracteresRule.cs" />
+    <Compile Include="Validation\Rules\UsuarioRules\UsuarioTelefoneValido.cs" />
+    <Compile Include="Validation\UsuarioValidation.cs" />
+    <Compile Include="Validation\ValidationEngine.cs" />
+    <Compile Include="Validation\ValidationError.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+{"version":3,"file":"usuarios-routes.js","sourceRoot":"","sources":["usuarios-routes.ts"],"names":[],"mappings":";AACA,mCAAkC,sBAAsB,CAAC,CAAA;AAE5C,sBAAc,GAAiB;IAC3C;QACC,IAAI,EAAE,SAAS;QACf,SAAS,EAAE,sCAAiB;KAC5B;IACD;QACC,IAAI,EAAE,EAAE;QACR,UAAU,EAAE,UAAU;QACtB,QAAQ,EAAE,IAAI;KACd;CACD,CAAC"}

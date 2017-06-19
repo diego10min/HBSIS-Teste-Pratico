@@ -1,0 +1,14 @@
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Repository.dll
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Repository.pdb
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Entity.dll
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Entity.pdb
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.dll
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.pdb
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Repository.dll
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Repository.pdb
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Entity.dll
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\bin\Debug\HBSIS.Entity.pdb
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.dll
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Repository\obj\Debug\HBSIS.Repository.pdb

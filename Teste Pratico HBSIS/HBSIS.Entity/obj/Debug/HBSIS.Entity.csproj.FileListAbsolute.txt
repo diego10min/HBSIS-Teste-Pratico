@@ -1,0 +1,8 @@
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Entity\bin\Debug\HBSIS.Entity.dll
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Entity\bin\Debug\HBSIS.Entity.pdb
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Entity\obj\Debug\HBSIS.Entity.dll
+C:\Users\Diego\documents\visual studio 2013\Projects\Teste Pratico HBSIS\HBSIS.Entity\obj\Debug\HBSIS.Entity.pdb
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Entity\bin\Debug\HBSIS.Entity.dll
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Entity\bin\Debug\HBSIS.Entity.pdb
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Entity\obj\Debug\HBSIS.Entity.dll
+C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.Entity\obj\Debug\HBSIS.Entity.pdb

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.4" DspName="Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider" CollationLcid="1033" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="True" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="True" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="120" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="HBSIS.SqlServer.dll" />
+			<Metadata Name="FileName" Value="C:\USERS\DIEGO\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\TESTE-PRATICO-HBSIS\TESTE PRATICO HBSIS\HBSIS.SQLSERVER\OBJ\DEBUG\HBSIS.SQLSERVER.DLL" />
+			<Metadata Name="AssemblyName" Value="HBSIS.SqlServer" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Diego\Documents\Visual Studio 2013\Projects\teste-pratico-hbsis\Teste Pratico HBSIS\HBSIS.SqlServer\obj\Debug\HBSIS.SqlServer.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
+			<Property Name="IsAnsiNullDefaultOn" Value="True" />
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Property Name="IsAnsiWarningsOn" Value="True" />
+			<Property Name="IsArithAbortOn" Value="True" />
+			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="PageVerifyMode" Value="3" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[TB_Usuario].[Id_Usuario]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[TB_Usuario]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[CRUD_Usuario]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SET NOCOUNT ON;
+	IF @Acao = 'I'
+		BEGIN
+			INSERT INTO dbo.TB_Usuario
+					( 	
+						Nome,
+						Telefone,
+						Documento
+					)
+			VALUES  ( 	
+						@Nome,
+						@Telefone,
+						@Documento
+					)
+			SET @IdRetorno = SCOPE_IDENTITY();
+		END
+	IF @Acao = 'U'
+		BEGIN
+			UPDATE dbo.TB_Usuario
+			SET Nome			= @Nome,
+				Telefone		= @Telefone,
+				Documento		= @Documento
+			WHERE Id_Usuario = @IdUsuario
+			SET @IdRetorno = @IdUsuario
+		END
+	IF @Acao = 'D'
+		BEGIN
+			DELETE FROM dbo.TB_Usuario
+			WHERE Id_Usuario = @IdUsuario
+			SET @IdRetorno = @IdUsuario
+		END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@Acao]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Nome]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Telefone]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Documento]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@Nome]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@Telefone]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@Documento]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@IdRetorno]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Id_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[CRUD_Usuario].[@IdUsuario]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@Acao]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@IdUsuario]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@Nome]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="70" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@Telefone]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="11" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@Documento]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="14" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[CRUD_Usuario].[@IdRetorno]">
+						<Property Name="IsOutput" Value="True" />
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="190" />
+				<Property Name="Length" Value="1002" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;Diego Nascimento&#x9;&#x9;&#xD;&#xA;-- Create date: 10/06/2017&#xD;&#xA;-- Description:&#x9;CRUD_Usuario&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[CRUD_Usuario]&#xD;&#xA;&#x9;@Acao VARCHAR(1),&#xD;&#xA;&#x9;@IdUsuario INT = NULL,&#xD;&#xA;&#x9;@Nome VARCHAR(70) = NULL,&#xD;&#xA;&#x9;@Telefone VARCHAR(11) = NULL,&#xD;&#xA;&#x9;@Documento VARCHAR(14) = NULL,&#xD;&#xA;&#x9;@IdRetorno INT OUTPUT&#xD;&#xA;&#x9;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Listar_Usuario]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SET NOCOUNT ON;
+	IF @Acao = 'TODOS'
+		BEGIN
+			SELECT  Usu.Id_Usuario, Usu.Nome, Usu.Telefone, Usu.Documento
+				FROM TB_Usuario Usu
+				ORDER BY Usu.Id_Usuario DESC	
+		END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Listar_Usuario].[@Acao]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Id_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Nome]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Telefone]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Documento]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Listar_Usuario].[@Acao]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Listar_Usuario].[@Valor1]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="192" />
+				<Property Name="Length" Value="481" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;Diego Nascimento&#x9;&#x9;&#xD;&#xA;-- Create date: 10/06/2017&#xD;&#xA;-- Description:&#x9;Listar_Usuario&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[Listar_Usuario]&#xD;&#xA;&#x9;@Acao VARCHAR(50),&#x9;&#xD;&#xA;&#x9;@Valor1 VARCHAR(MAX) = NULL&#xD;&#xA;&#x9;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[Obter_Usuario]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SET NOCOUNT ON;
+	IF @Acao = 'ID'
+		BEGIN
+			SELECT  Usu.Id_Usuario, Usu.Nome, Usu.Telefone, Usu.Documento
+				FROM TB_Usuario Usu
+				WHERE Usu.Id_Usuario = @Valor1
+		END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Obter_Usuario].[@Acao]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Id_Usuario]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Nome]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Telefone]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[TB_Usuario].[Documento]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Obter_Usuario].[@Valor1]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Obter_Usuario].[@Acao]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[Obter_Usuario].[@Valor1]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[NULL]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="191" />
+				<Property Name="Length" Value="477" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="-- =============================================&#xD;&#xA;-- Author:&#x9;&#x9;Diego Nascimento&#x9;&#x9;&#xD;&#xA;-- Create date: 10/06/2017&#xD;&#xA;-- Description:&#x9;Obter_Usuario&#xD;&#xA;-- =============================================&#xD;&#xA;CREATE PROCEDURE [dbo].[Obter_Usuario]&#xD;&#xA;&#x9;@Acao VARCHAR(50),&#x9;&#xD;&#xA;&#x9;@Valor1 VARCHAR(MAX) = NULL&#xD;&#xA;&#x9;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[TB_Usuario]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[TB_Usuario].[Id_Usuario]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[TB_Usuario].[Nome]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="70" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[TB_Usuario].[Telefone]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="11" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[TB_Usuario].[Documento]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="14" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+	</Model>
+</DataSchemaModel>
